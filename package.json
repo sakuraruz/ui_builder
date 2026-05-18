@@ -1,0 +1,22 @@
+{
+  "name": "visual-interface-builder",
+  "version": "0.1.0",
+  "description": "Desktop drag-and-drop visual interface builder with HTML/CSS export.",
+  "main": "src/main/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Tests are not configured yet\""
+  },
+  "keywords": [
+    "electron",
+    "visual-editor",
+    "html",
+    "css"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "electron": "^37.0.0"
+  }
+}

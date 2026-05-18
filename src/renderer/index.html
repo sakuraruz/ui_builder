@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Визуальный конструктор интерфейсов</title>
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/layout.css" />
+    <link rel="stylesheet" href="./styles/canvas.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">F</span>
+          <div>
+            <h1>Visual Builder</h1>
+            <p id="projectName">Новый проект.fld</p>
+          </div>
+        </div>
+
+        <nav class="toolbar" aria-label="Управление проектом">
+          <button class="tool-button" type="button" data-action="new" title="Создать проект">
+            <span aria-hidden="true">+</span>
+            <span>Создать</span>
+          </button>
+          <button class="tool-button" type="button" data-action="open" title="Открыть .fld проект">
+            <span aria-hidden="true">O</span>
+            <span>Открыть</span>
+          </button>
+          <button class="tool-button" type="button" data-action="save" title="Сохранить проект">
+            <span aria-hidden="true">S</span>
+            <span>Сохранить</span>
+          </button>
+          <button class="tool-button" type="button" data-action="save-as" title="Сохранить проект как">
+            <span aria-hidden="true">A</span>
+            <span>Как</span>
+          </button>
+          <button class="tool-button" type="button" data-action="export" title="Экспортировать HTML/CSS">
+            <span aria-hidden="true">E</span>
+            <span>Экспорт</span>
+          </button>
+          <button class="tool-button" type="button" data-action="preview" title="Экспортировать и открыть предпросмотр">
+            <span aria-hidden="true">P</span>
+            <span>Просмотр</span>
+          </button>
+        </nav>
+      </header>
+
+      <main class="workspace">
+        <aside class="palette panel" aria-label="Палитра элементов">
+          <div class="panel-header">
+            <h2>Элементы</h2>
+          </div>
+          <div class="palette-list" id="paletteList"></div>
+        </aside>
+
+        <section class="stage" aria-label="Холст проекта">
+          <div class="stage-toolbar">
+            <div class="segmented-control" aria-label="Выравнивание">
+              <button type="button" data-action="align-left" title="По левому краю">L</button>
+              <button type="button" data-action="align-center" title="По центру">C</button>
+              <button type="button" data-action="align-right" title="По правому краю">R</button>
+            </div>
+
+            <div class="segmented-control" aria-label="Слои">
+              <button type="button" data-action="layer-back" title="На слой назад">-</button>
+              <button type="button" data-action="layer-forward" title="На слой вперед">+</button>
+              <button type="button" data-action="layer-bottom" title="На задний план">B</button>
+              <button type="button" data-action="layer-top" title="На передний план">T</button>
+            </div>
+
+            <button class="danger-button" type="button" data-action="delete" title="Удалить выбранные элементы">
+              Удалить
+            </button>
+
+            <label class="zoom-control">
+              <span>Масштаб</span>
+              <input id="zoomRange" type="range" min="25" max="200" step="5" value="100" />
+              <output id="zoomValue">100%</output>
+            </label>
+
+            <label class="switch">
+              <input id="gridToggle" type="checkbox" checked />
+              <span>Сетка</span>
+            </label>
+          </div>
+
+          <div class="canvas-scroll" id="canvasScroll">
+            <div class="canvas-scale" id="canvasScale">
+              <div class="canvas" id="canvas" tabindex="0" aria-label="Рабочий холст">
+                <div class="empty-state" id="emptyState">
+                  Перетащите элемент из палитры на холст
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="inspector panel" aria-label="Инспектор свойств">
+          <div class="panel-header">
+            <h2>Свойства</h2>
+            <span id="selectionCount">Нет выбора</span>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Разделы инспектора">
+            <button class="tab is-active" type="button" data-tab="style" role="tab">Стиль</button>
+            <button class="tab" type="button" data-tab="geometry" role="tab">Геометрия</button>
+            <button class="tab" type="button" data-tab="advanced" role="tab">Дополнительно</button>
+          </div>
+
+          <form class="property-panel is-active" id="stylePanel" data-panel="style"></form>
+          <form class="property-panel" id="geometryPanel" data-panel="geometry"></form>
+          <form class="property-panel" id="advancedPanel" data-panel="advanced"></form>
+        </aside>
+      </main>
+    </div>
+
+    <input id="projectFileInput" type="file" accept=".fld,application/json" hidden />
+    <script type="module" src="./renderer.js"></script>
+  </body>
+</html>

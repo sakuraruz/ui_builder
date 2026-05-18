@@ -1,0 +1,175 @@
+.canvas-scroll {
+  min-height: 0;
+  overflow: auto;
+  padding: 36px;
+}
+
+.canvas-scale {
+  width: max-content;
+  transform-origin: 0 0;
+}
+
+.canvas {
+  position: relative;
+  width: 1200px;
+  height: 800px;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background-color: #fff;
+  box-shadow: var(--shadow);
+}
+
+.canvas.has-grid {
+  background-image:
+    linear-gradient(to right, rgba(0, 127, 117, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 127, 117, 0.1) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+.empty-state {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #8b948e;
+  font-size: 15px;
+  pointer-events: none;
+}
+
+.canvas-element {
+  position: absolute;
+  min-width: 20px;
+  min-height: 20px;
+  outline: 1px solid transparent;
+  user-select: none;
+}
+
+.canvas-element.is-selected {
+  outline: 2px solid var(--selection);
+  outline-offset: 1px;
+}
+
+.canvas-element.is-multi-selected {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.element-content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+
+img.element-content {
+  display: block;
+  object-fit: cover;
+}
+
+.element-button .element-content {
+  display: grid;
+  place-items: center;
+  border: 1px solid transparent;
+  appearance: none;
+}
+
+.element-text .element-content {
+  display: flex;
+  align-items: center;
+}
+
+.element-container .element-content,
+.element-form .element-content {
+  display: grid;
+  align-content: start;
+}
+
+.element-container .canvas-element {
+  z-index: 1;
+}
+
+.form-title {
+  display: block;
+  min-height: 22px;
+  line-height: 22px;
+}
+
+.form-row-preview {
+  width: 100%;
+  height: 34px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #d8ddd5;
+  border-radius: 6px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #69726d;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.form-submit-preview {
+  display: inline-grid;
+  place-items: center;
+  appearance: none;
+  cursor: default;
+}
+
+.element-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border: 1px dashed #b8c1bd;
+  background: #f4f6f2;
+  color: #78817b;
+}
+
+.resize-handle {
+  position: absolute;
+  z-index: 4;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--selection);
+  box-shadow: 0 1px 3px rgba(31, 37, 35, 0.2);
+}
+
+.resize-handle[data-handle="nw"] {
+  top: -6px;
+  left: -6px;
+  cursor: nwse-resize;
+}
+
+.resize-handle[data-handle="ne"] {
+  top: -6px;
+  right: -6px;
+  cursor: nesw-resize;
+}
+
+.resize-handle[data-handle="sw"] {
+  bottom: -6px;
+  left: -6px;
+  cursor: nesw-resize;
+}
+
+.resize-handle[data-handle="se"] {
+  right: -6px;
+  bottom: -6px;
+  cursor: nwse-resize;
+}
+
+.selection-box {
+  position: absolute;
+  z-index: 5;
+  border: 1px solid var(--accent);
+  background: rgba(0, 127, 117, 0.12);
+  pointer-events: none;
+}

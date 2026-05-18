@@ -1,0 +1,403 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 250px;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.brand h1 {
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.brand p {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.toolbar,
+.stage-toolbar,
+.segmented-control,
+.tabs {
+  display: flex;
+  align-items: center;
+}
+
+.toolbar {
+  gap: 8px;
+}
+
+.tool-button {
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-muted);
+  color: var(--text);
+}
+
+.tool-button span:first-child {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: #e8ece6;
+  color: var(--accent-strong);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.tool-button:hover,
+.segmented-control button:hover,
+.tab:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.workspace {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: var(--palette-width) minmax(430px, 1fr) var(--inspector-width);
+}
+
+.panel {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.inspector {
+  border-right: 0;
+  border-left: 1px solid var(--line);
+}
+
+.panel-header {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.panel-header h2 {
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+.panel-header span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.palette-list {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  overflow: auto;
+}
+
+.palette-item {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-muted);
+  color: var(--text);
+  text-align: left;
+}
+
+.palette-item:hover,
+.palette-item:focus-visible {
+  outline: 0;
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.palette-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: #ffffff;
+  color: var(--accent-strong);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-weight: 800;
+}
+
+.palette-item strong {
+  display: block;
+  font-size: 13px;
+}
+
+.palette-item small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.stage {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: 54px 1fr;
+  background: #e9ece7;
+}
+
+.stage-toolbar {
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.danger-button,
+.inline-action {
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid #d8a08f;
+  border-radius: var(--radius);
+  background: #fff2ee;
+  color: #9c4221;
+}
+
+.danger-button:hover,
+.inline-action:hover {
+  border-color: var(--warning);
+  background: #ffe5dc;
+}
+
+.segmented-control {
+  gap: 1px;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #edf0eb;
+}
+
+.segmented-control button {
+  width: 34px;
+  height: 30px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.zoom-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 260px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.zoom-control input {
+  width: 150px;
+  accent-color: var(--accent);
+}
+
+.zoom-control output {
+  width: 44px;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.switch input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+
+.tabs {
+  gap: 6px;
+  padding: 10px 12px 0;
+}
+
+.tab {
+  flex: 1;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-bottom-color: var(--line);
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.tab.is-active {
+  border-color: var(--accent);
+  background: var(--surface);
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+.property-panel {
+  display: none;
+  gap: 14px;
+  padding: 12px;
+  overflow: auto;
+}
+
+.property-panel.is-active {
+  display: grid;
+}
+
+.field-group {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-muted);
+}
+
+.field-group h3 {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: minmax(86px, 1fr) minmax(0, 150px);
+  align-items: center;
+  gap: 10px;
+}
+
+.field-row label,
+.field-row > span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.field-row input,
+.field-row select,
+.field-row textarea {
+  width: 100%;
+  min-height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+  padding: 5px 8px;
+}
+
+.field-row input[type="color"] {
+  height: 32px;
+  padding: 2px;
+}
+
+.field-row textarea {
+  min-height: 62px;
+  resize: vertical;
+}
+
+.quad-grid,
+.pair-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.pair-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.quad-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.compact-field {
+  display: grid;
+  gap: 4px;
+}
+
+.compact-field span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.empty-inspector {
+  padding: 18px 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.form-fields-editor {
+  display: grid;
+  gap: 8px;
+}
+
+.form-field-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 32px;
+  gap: 6px;
+}
+
+.form-field-row button {
+  min-height: 32px;
+  border: 1px solid #d8a08f;
+  border-radius: 6px;
+  background: #fff2ee;
+  color: #9c4221;
+  font-weight: 800;
+}
+
+.inline-action {
+  justify-self: start;
+  border-color: var(--line);
+  background: #fff;
+  color: var(--accent-strong);
+}
