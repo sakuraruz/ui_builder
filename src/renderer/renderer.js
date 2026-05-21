@@ -374,6 +374,11 @@ function applyVisualStyle(node, element) {
   node.style.padding = `${style.padding.top}px ${style.padding.right}px ${style.padding.bottom}px ${style.padding.left}px`;
 }
 
+function applyCanvasLayoutStyle(node, element) {
+  const margin = element.style.margin;
+  node.style.margin = `${margin.top}px ${margin.right}px ${margin.bottom}px ${margin.left}px`;
+}
+
 function elementMarkup(element) {
   if (element.type === "button") {
     return `<button class="element-content" type="button">${escapeHtml(element.text)}</button>`;
@@ -435,6 +440,7 @@ function renderElement(element, parentNode) {
   node.style.top = `${element.y}px`;
   node.style.width = `${element.width}px`;
   node.style.height = `${element.height}px`;
+  applyCanvasLayoutStyle(node, element);
   node.innerHTML = elementMarkup(element);
 
   const content = node.querySelector(".element-content");
@@ -744,6 +750,26 @@ function handlePropertyInput(event) {
   }
 
   renderCanvas({ skipInspector: true });
+}
+
+function syncLiveGeometryControls() {
+  const element = getPrimaryElement();
+  if (!element) {
+    return;
+  }
+
+  const liveProps = {
+    x: element.x,
+    y: element.y,
+    width: element.width,
+    height: element.height
+  };
+
+  document.querySelectorAll("[data-prop]").forEach((control) => {
+    if (Object.hasOwn(liveProps, control.dataset.prop) && control.value !== String(liveProps[control.dataset.prop])) {
+      control.value = liveProps[control.dataset.prop];
+    }
+  });
 }
 
 function updateInspectorTargetIds(previousId, nextId) {
@@ -1057,6 +1083,7 @@ function handlePointerMove(event) {
   });
 
   renderCanvas({ skipInspector: true });
+  syncLiveGeometryControls();
 }
 
 function resizeElement(element, start, dx, dy, handle) {
